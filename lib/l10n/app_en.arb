@@ -1,0 +1,53 @@
+{
+  "@@locale": "en",
+
+  "back": "Return",
+  "@back": {
+    "description": ""
+  },
+
+  "italic": "Display calculation results in italics",
+  "@italic": {
+    "description": ""
+  },
+
+  "separator": "Separator:",
+  "@separator": {
+    "description": ""
+  },
+
+  "separatorNone": "None",
+  "@separatorNone": {
+    "description": ""
+  },
+
+  "separatorUpper": "Upper",
+  "@separatorUpper": {
+    "description": ""
+  },
+
+  "separatorLower": "Lower",
+  "@separatorLower": {
+    "description": ""
+  },
+
+  "loadImage": "Load image",
+  "@loadImage": {
+    "description": ""
+  },
+
+  "removeImage": "Remove image",
+  "@removeImage": {
+    "description": ""
+  },
+
+  "imageX": "Horizontal alignment:",
+  "@imageX": {
+    "description": ""
+  },
+
+  "imageY": "Vertical alignment:",
+  "@imageY": {
+    "description": ""
+  }
+}
