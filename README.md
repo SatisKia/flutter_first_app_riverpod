@@ -1,1 +1,1 @@
-# flutter_first_app_riverpod
+# flutter_first_app

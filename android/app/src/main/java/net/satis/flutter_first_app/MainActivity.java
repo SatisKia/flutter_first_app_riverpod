@@ -1,4 +1,4 @@
-package net.satis.flutter_first_app_riverpod;
+package net.satis.flutter_first_app;
 
 import io.flutter.embedding.android.FlutterActivity;
 
