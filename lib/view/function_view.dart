@@ -25,24 +25,24 @@ class FunctionView extends MyView {
       FunctionViewWidgetA( state ),
       FunctionViewWidgetB( state ),
       MyRow( children: [
-        MyCalcButton( state, "sin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSin ),
-        MyCalcButton( state, "cos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonCos ),
-        MyCalcButton( state, "tan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonTan ),
+        MyCalcButtonRBShadow( state, "sin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSin ),
+        MyCalcButtonRBShadow( state, "cos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonCos ),
+        MyCalcButtonRBShadow( state, "tan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonTan ),
       ] ),
       MyRow( children: [
-        MyCalcButton( state, "asin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcSin ),
-        MyCalcButton( state, "acos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcCos ),
-        MyCalcButton( state, "atan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcTan ),
+        MyCalcButtonRBShadow( state, "asin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcSin ),
+        MyCalcButtonRBShadow( state, "acos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcCos ),
+        MyCalcButtonRBShadow( state, "atan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcTan ),
       ] ),
       MyRow( children: [
-        MyCalcButton( state, "ln", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog ),
-        MyCalcButton( state, "log", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog10 ),
-        MyCalcButton( state, "sqr", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSqr ),
+        MyCalcButtonRBShadow( state, "ln", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog ),
+        MyCalcButtonRBShadow( state, "log", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog10 ),
+        MyCalcButtonRBShadow( state, "sqr", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSqr ),
       ] ),
       MyRow( children: [
-        MyCalcButton( state, "exp", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp ),
-        MyCalcButton( state, "exp10", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp10 ),
-        MyCalcButton( state, "int", 106, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonInt ),
+        MyCalcButtonRBShadow( state, "exp", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp ),
+        MyCalcButtonRBShadow( state, "exp10", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp10 ),
+        MyCalcButtonRBShadow( state, "int", 106, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonInt ),
       ] )
     ] );
 
@@ -109,10 +109,10 @@ class FunctionViewWidgetA extends ConsumerWidget {
         child: MyDisplay( state, "M = ${functionData.dispMemory}", 320, 20, 17, FontStyle.normal, Alignment.bottomLeft ),
       ),
       MyRow( children: [
-        MyCalcButton( state, "M+", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMAdd ),
-        MyCalcButton( state, "M-", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMSub ),
-        MyCalcButton( state, functionData.mrcButtonText, 80, buttonHeight1, 25, MyModel.calc.memoryRecalled ? 0xFF8080 : 0x000000, 0xC0C0FF, state.onButtonMRC ),
-        MyCalcButton( state, "NUM", 80, buttonHeight1, 25, 0xFFFFFF, 0xFFA0A0, state.onButtonNumber )
+        MyCalcButtonRBShadow( state, "M+", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMAdd ),
+        MyCalcButtonRBShadow( state, "M-", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMSub ),
+        MyCalcButtonRBShadow( state, functionData.mrcButtonText, 80, buttonHeight1, 25, MyModel.calc.memoryRecalled ? 0xFF8080 : 0x000000, 0xC0C0FF, state.onButtonMRC ),
+        MyCalcButtonLTShadow( state, "NUM", 80, buttonHeight1, 25, 0xFFFFFF, 0xFFA0A0, state.onButtonNumber )
       ] ),
     ] );
   }
@@ -132,10 +132,10 @@ class FunctionViewWidgetB extends ConsumerWidget {
 
     return MyColumn( children: [
       MyRow( children: [
-        MyCalcButton( state, "CE", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonCE ),
-        MyCalcButton( state, "C", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonC ),
-        MyCalcButton( state, functionData.angleButtonText, 80, buttonHeight2, 25, 0x000000, 0xFFFFFF, state.onButtonAngle ),
-        MyCalcButton( state, "√", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSqrt )
+        MyCalcButtonRBShadow( state, "CE", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonCE ),
+        MyCalcButtonRBShadow( state, "C", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonC ),
+        MyCalcButtonRBShadow( state, functionData.angleButtonText, 80, buttonHeight2, 25, 0x000000, 0xFFFFFF, state.onButtonAngle ),
+        MyCalcButtonRBShadow( state, "√", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSqrt )
       ] ),
     ] );
   }

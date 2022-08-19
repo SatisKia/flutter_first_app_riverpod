@@ -25,28 +25,28 @@ class NumberView extends MyView {
       NumberViewWidgetA( state ),
       NumberViewWidgetB( state ),
       MyRow( children: [
-        MyCalcButton( state, "7", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton7 ),
-        MyCalcButton( state, "8", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton8 ),
-        MyCalcButton( state, "9", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton9 ),
-        MyCalcButton( state, "×", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonMul )
+        MyCalcButtonRBShadow( state, "7", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton7 ),
+        MyCalcButtonRBShadow( state, "8", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton8 ),
+        MyCalcButtonRBShadow( state, "9", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton9 ),
+        MyCalcButtonRBShadow( state, "×", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonMul )
       ] ),
       MyRow( children: [
-        MyCalcButton( state, "4", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton4 ),
-        MyCalcButton( state, "5", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton5 ),
-        MyCalcButton( state, "6", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton6 ),
-        MyCalcButton( state, "-", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSub )
+        MyCalcButtonRBShadow( state, "4", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton4 ),
+        MyCalcButtonRBShadow( state, "5", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton5 ),
+        MyCalcButtonRBShadow( state, "6", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton6 ),
+        MyCalcButtonRBShadow( state, "-", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSub )
       ] ),
       MyRow( children: [
-        MyCalcButton( state, "1", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton1 ),
-        MyCalcButton( state, "2", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton2 ),
-        MyCalcButton( state, "3", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton3 ),
-        MyCalcButton( state, "+", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonAdd )
+        MyCalcButtonRBShadow( state, "1", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton1 ),
+        MyCalcButtonRBShadow( state, "2", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton2 ),
+        MyCalcButtonRBShadow( state, "3", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton3 ),
+        MyCalcButtonRBShadow( state, "+", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonAdd )
       ] ),
       MyRow( children: [
-        MyCalcButton( state, "+/-", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonNegative ),
-        MyCalcButton( state, "0", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButton0 ),
-        MyCalcButton( state, ".", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonPoint ),
-        MyCalcButton( state, "=", 80, buttonHeight3, 40, 0xFF8080, 0xFFFFFF, state.onButtonEqual )
+        MyCalcButtonRBShadow( state, "+/-", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonNegative ),
+        MyCalcButtonRBShadow( state, "0", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButton0 ),
+        MyCalcButtonRBShadow( state, ".", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonPoint ),
+        MyCalcButtonRBShadow( state, "=", 80, buttonHeight3, 40, 0xFF8080, 0xFFFFFF, state.onButtonEqual )
       ] )
     ] );
 
@@ -113,10 +113,10 @@ class NumberViewWidgetA extends ConsumerWidget {
         child: MyDisplay( state, "A = ${numberData.dispAnswer}  M = ${numberData.dispMemory}", 320, 20, 17, FontStyle.normal, Alignment.bottomLeft ),
       ),
       MyRow( children: [
-        MyCalcButton( state, "M+", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMAdd ),
-        MyCalcButton( state, "M-", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMSub ),
-        MyCalcButton( state, numberData.mrcButtonText, 80, buttonHeight1, 25, MyModel.calc.memoryRecalled ? 0xFF8080 : 0x000000, 0xC0C0FF, state.onButtonMRC ),
-        MyCalcButton( state, "FNC", 80, buttonHeight1, 25, 0xFFFFFF, 0xFFA0A0, state.onButtonFunction )
+        MyCalcButtonRBShadow( state, "M+", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMAdd ),
+        MyCalcButtonRBShadow( state, "M-", 80, buttonHeight1, 25, 0x000000, 0xC0C0FF, state.onButtonMSub ),
+        MyCalcButtonRBShadow( state, numberData.mrcButtonText, 80, buttonHeight1, 25, MyModel.calc.memoryRecalled ? 0xFF8080 : 0x000000, 0xC0C0FF, state.onButtonMRC ),
+        MyCalcButtonLTShadow( state, "FNC", 80, buttonHeight1, 25, 0xFFFFFF, 0xFFA0A0, state.onButtonFunction )
       ] ),
     ] );
   }
@@ -135,10 +135,10 @@ class NumberViewWidgetB extends ConsumerWidget {
 
     return MyColumn( children: [
       MyRow( children: [
-        MyCalcButton( state, "CE", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonCE ),
-        MyCalcButton( state, "C", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonC ),
-        MyCalcButton( state, "DEL", 80, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonDEL ),
-        MyCalcButton( state, "÷", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonDiv )
+        MyCalcButtonRBShadow( state, "CE", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonCE ),
+        MyCalcButtonRBShadow( state, "C", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonC ),
+        MyCalcButtonRBShadow( state, "DEL", 80, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonDEL ),
+        MyCalcButtonRBShadow( state, "÷", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonDiv )
       ] ),
     ] );
   }

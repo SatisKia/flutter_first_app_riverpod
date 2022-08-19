@@ -8,7 +8,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'config.dart';
 
-void main(){
+void main() async {
+  if( MyConfig.fullScreen ){
+    WidgetsFlutterBinding.ensureInitialized();
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  }
   runApp(
       ProviderScope(
           child: MyApp()
@@ -186,7 +190,10 @@ class MyState extends ConsumerState with WidgetsBindingObserver {
   @override
   Widget build( BuildContext context ){
     contentWidth  = MediaQuery.of( context ).size.width;
-    contentHeight = MediaQuery.of( context ).size.height - MediaQuery.of( context ).padding.top - MediaQuery.of( context ).padding.bottom;
+    contentHeight = MediaQuery.of( context ).size.height;
+    if( !MyConfig.fullScreen ){
+      contentHeight -= MediaQuery.of( context ).padding.top + MediaQuery.of( context ).padding.bottom;
+    }
 
     AppBar appBar = AppBar(
         toolbarHeight: 0
@@ -202,7 +209,7 @@ class MyState extends ConsumerState with WidgetsBindingObserver {
 
     if( autoScroll() ){
       return Scaffold(
-        appBar: appBar,
+        appBar: MyConfig.fullScreen ? null : appBar,
         resizeToAvoidBottomInset: false, // 自前で高さ対応する
         body: SingleChildScrollView(
           controller: scrollController,
@@ -217,7 +224,7 @@ class MyState extends ConsumerState with WidgetsBindingObserver {
       );
     } else {
       return Scaffold(
-        appBar: appBar,
+        appBar: MyConfig.fullScreen ? null : appBar,
         body: body,
       );
     }
