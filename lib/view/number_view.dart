@@ -10,64 +10,6 @@ import '../view_model/option_view_model.dart';
 import '../widget/calc_widget.dart';
 import '../widget/common_widget.dart';
 
-class NumberView extends MyView {
-  @override
-  Widget build( MyState state, WidgetRef ref ){
-    state as MyNumberState;
-
-    int height = state.getContentHeight() - 20 - 50 - 20; // 計算結果等の表示欄の高さを引いた分
-    int buttonHeight1 = height * 3 ~/ 23;
-    int buttonHeight2 = height * 4 ~/ 23;
-    int remainder = height - buttonHeight1 - buttonHeight2 * 5;
-    int buttonHeight3 = buttonHeight2 + remainder;
-
-    Widget child = MyColumn( children: [
-      NumberViewWidgetA( state ),
-      NumberViewWidgetB( state ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "7", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton7 ),
-        MyCalcButtonRBShadow( state, "8", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton8 ),
-        MyCalcButtonRBShadow( state, "9", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton9 ),
-        MyCalcButtonRBShadow( state, "×", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonMul )
-      ] ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "4", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton4 ),
-        MyCalcButtonRBShadow( state, "5", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton5 ),
-        MyCalcButtonRBShadow( state, "6", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton6 ),
-        MyCalcButtonRBShadow( state, "-", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSub )
-      ] ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "1", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton1 ),
-        MyCalcButtonRBShadow( state, "2", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton2 ),
-        MyCalcButtonRBShadow( state, "3", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton3 ),
-        MyCalcButtonRBShadow( state, "+", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonAdd )
-      ] ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "+/-", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonNegative ),
-        MyCalcButtonRBShadow( state, "0", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButton0 ),
-        MyCalcButtonRBShadow( state, ".", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonPoint ),
-        MyCalcButtonRBShadow( state, "=", 80, buttonHeight3, 40, 0xFF8080, 0xFFFFFF, state.onButtonEqual )
-      ] )
-    ] );
-
-    if( MyModel.app.imageFlag && MyModel.app.image != null ) {
-      return Container(
-          width: state.contentWidth,
-          height: state.contentHeight,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: MyModel.app.image!,
-                  fit: BoxFit.cover,
-                  alignment: Alignment( MyModel.app.imageX, MyModel.app.imageY )
-              )
-          ),
-          child: child
-      );
-    }
-    return child;
-  }
-}
-
 class NumberViewWidgetA extends ConsumerWidget {
   final MyNumberState state;
   const NumberViewWidgetA( this.state, {Key? key} ) : super(key: key);
@@ -141,5 +83,75 @@ class NumberViewWidgetB extends ConsumerWidget {
         MyCalcButtonRBShadow( state, "÷", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonDiv )
       ] ),
     ] );
+  }
+}
+
+class NumberViewWidgetC extends ConsumerWidget {
+  final MyNumberState state;
+  const NumberViewWidgetC( this.state, {Key? key} ) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    int height = state.getContentHeight() - 20 - 50 - 20; // 計算結果等の表示欄の高さを引いた分
+    int buttonHeight1 = height * 3 ~/ 23;
+    int buttonHeight2 = height * 4 ~/ 23;
+    int remainder = height - buttonHeight1 - buttonHeight2 * 5;
+    int buttonHeight3 = buttonHeight2 + remainder;
+
+    return MyColumn( children: [
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "7", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton7 ),
+        MyCalcButtonRBShadow( state, "8", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton8 ),
+        MyCalcButtonRBShadow( state, "9", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton9 ),
+        MyCalcButtonRBShadow( state, "×", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonMul )
+      ] ),
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "4", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton4 ),
+        MyCalcButtonRBShadow( state, "5", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton5 ),
+        MyCalcButtonRBShadow( state, "6", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton6 ),
+        MyCalcButtonRBShadow( state, "-", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSub )
+      ] ),
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "1", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton1 ),
+        MyCalcButtonRBShadow( state, "2", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton2 ),
+        MyCalcButtonRBShadow( state, "3", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButton3 ),
+        MyCalcButtonRBShadow( state, "+", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonAdd )
+      ] ),
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "+/-", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonNegative ),
+        MyCalcButtonRBShadow( state, "0", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButton0 ),
+        MyCalcButtonRBShadow( state, ".", 80, buttonHeight3, 40, 0x000000, 0xFFFFFF, state.onButtonPoint ),
+        MyCalcButtonRBShadow( state, "=", 80, buttonHeight3, 40, 0xFF8080, 0xFFFFFF, state.onButtonEqual )
+      ] )
+    ] );
+  }
+}
+
+class NumberView extends MyView {
+  @override
+  Widget build( MyState state, WidgetRef ref ){
+    state as MyNumberState;
+
+    Widget child = MyColumn( children: [
+      NumberViewWidgetA( state ),
+      NumberViewWidgetB( state ),
+      NumberViewWidgetC( state ),
+    ] );
+
+    if( MyModel.app.imageFlag && MyModel.app.image != null ) {
+      return Container(
+          width: state.contentWidth,
+          height: state.contentHeight,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: MyModel.app.image!,
+                  fit: BoxFit.cover,
+                  alignment: Alignment( MyModel.app.imageX, MyModel.app.imageY )
+              )
+          ),
+          child: child
+      );
+    }
+    return child;
   }
 }

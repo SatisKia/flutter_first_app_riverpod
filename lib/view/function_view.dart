@@ -10,60 +10,6 @@ import '../view_model/option_view_model.dart';
 import '../widget/calc_widget.dart';
 import '../widget/common_widget.dart';
 
-class FunctionView extends MyView {
-  @override
-  Widget build( MyState state, WidgetRef ref ){
-    state as MyFunctionState;
-
-    int height = state.getContentHeight() - 20 - 50 - 20; // 計算結果等の表示欄の高さを引いた分
-    int buttonHeight1 = height * 3 ~/ 23;
-    int buttonHeight2 = height * 4 ~/ 23;
-    int remainder = height - buttonHeight1 - buttonHeight2 * 5;
-    int buttonHeight3 = buttonHeight2 + remainder;
-
-    Widget child = MyColumn( children: [
-      FunctionViewWidgetA( state ),
-      FunctionViewWidgetB( state ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "sin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSin ),
-        MyCalcButtonRBShadow( state, "cos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonCos ),
-        MyCalcButtonRBShadow( state, "tan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonTan ),
-      ] ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "asin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcSin ),
-        MyCalcButtonRBShadow( state, "acos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcCos ),
-        MyCalcButtonRBShadow( state, "atan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcTan ),
-      ] ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "ln", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog ),
-        MyCalcButtonRBShadow( state, "log", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog10 ),
-        MyCalcButtonRBShadow( state, "sqr", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSqr ),
-      ] ),
-      MyRow( children: [
-        MyCalcButtonRBShadow( state, "exp", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp ),
-        MyCalcButtonRBShadow( state, "exp10", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp10 ),
-        MyCalcButtonRBShadow( state, "int", 106, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonInt ),
-      ] )
-    ] );
-
-    if( MyModel.app.imageFlag && MyModel.app.image != null ) {
-      return Container(
-          width: state.contentWidth,
-          height: state.contentHeight,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: MyModel.app.image!,
-                  fit: BoxFit.cover,
-                  alignment: Alignment( MyModel.app.imageX, MyModel.app.imageY )
-              )
-          ),
-          child: child
-      );
-    }
-    return child;
-  }
-}
-
 class FunctionViewWidgetA extends ConsumerWidget {
   final MyFunctionState state;
   const FunctionViewWidgetA( this.state, {Key? key} ) : super(key: key);
@@ -138,5 +84,71 @@ class FunctionViewWidgetB extends ConsumerWidget {
         MyCalcButtonRBShadow( state, "√", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonSqrt )
       ] ),
     ] );
+  }
+}
+
+class FunctionViewWidgetC extends ConsumerWidget {
+  final MyFunctionState state;
+  const FunctionViewWidgetC( this.state, {Key? key} ) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    int height = state.getContentHeight() - 20 - 50 - 20; // 計算結果等の表示欄の高さを引いた分
+    int buttonHeight1 = height * 3 ~/ 23;
+    int buttonHeight2 = height * 4 ~/ 23;
+    int remainder = height - buttonHeight1 - buttonHeight2 * 5;
+    int buttonHeight3 = buttonHeight2 + remainder;
+
+    return MyColumn( children: [
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "sin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSin ),
+        MyCalcButtonRBShadow( state, "cos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonCos ),
+        MyCalcButtonRBShadow( state, "tan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonTan ),
+      ] ),
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "asin", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcSin ),
+        MyCalcButtonRBShadow( state, "acos", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcCos ),
+        MyCalcButtonRBShadow( state, "atan", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonArcTan ),
+      ] ),
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "ln", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog ),
+        MyCalcButtonRBShadow( state, "log", 107, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonLog10 ),
+        MyCalcButtonRBShadow( state, "sqr", 106, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonSqr ),
+      ] ),
+      MyRow( children: [
+        MyCalcButtonRBShadow( state, "exp", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp ),
+        MyCalcButtonRBShadow( state, "exp10", 107, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonExp10 ),
+        MyCalcButtonRBShadow( state, "int", 106, buttonHeight3, 32, 0x000000, 0xFFFFFF, state.onButtonInt ),
+      ] )
+    ] );
+  }
+}
+
+class FunctionView extends MyView {
+  @override
+  Widget build( MyState state, WidgetRef ref ){
+    state as MyFunctionState;
+
+    Widget child = MyColumn( children: [
+      FunctionViewWidgetA( state ),
+      FunctionViewWidgetB( state ),
+      FunctionViewWidgetC( state ),
+    ] );
+
+    if( MyModel.app.imageFlag && MyModel.app.image != null ) {
+      return Container(
+          width: state.contentWidth,
+          height: state.contentHeight,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: MyModel.app.image!,
+                  fit: BoxFit.cover,
+                  alignment: Alignment( MyModel.app.imageX, MyModel.app.imageY )
+              )
+          ),
+          child: child
+      );
+    }
+    return child;
   }
 }
