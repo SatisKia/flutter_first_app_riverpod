@@ -77,8 +77,8 @@ class NumberViewWidgetB extends ConsumerWidget {
 
     return MyColumn( children: [
       MyRow( children: [
-        MyCalcButtonRBShadow( state, "CE", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonCE ),
-        MyCalcButtonRBShadow( state, "C", 80, buttonHeight2, 32, calcData.errorFlag ? 0xFFFFFF : 0xFF8080, calcData.errorFlag ? 0xFFA0A0 : 0xFFFFFF, state.onButtonC ),
+        calcData.errorFlag ? MyCalcButtonLTShadow( state, "CE", 80, buttonHeight2, 32, 0xFFFFFF, 0xFFA0A0, state.onButtonCE ) : MyCalcButtonRBShadow( state, "CE", 80, buttonHeight2, 32, 0xFF8080, 0xFFFFFF, state.onButtonCE ),
+        calcData.errorFlag ? MyCalcButtonLTShadow( state, "C", 80, buttonHeight2, 32, 0xFFFFFF, 0xFFA0A0, state.onButtonC ) : MyCalcButtonRBShadow( state, "C", 80, buttonHeight2, 32, 0xFF8080, 0xFFFFFF, state.onButtonC ),
         MyCalcButtonRBShadow( state, "DEL", 80, buttonHeight2, 32, 0x000000, 0xFFFFFF, state.onButtonDEL ),
         MyCalcButtonRBShadow( state, "÷", 80, buttonHeight2, 40, 0x000000, 0xFFFFFF, state.onButtonDiv )
       ] ),
