@@ -22,7 +22,7 @@ dependencies:
   # ローカライゼーション
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0
+  intl: ^0.18.0
 
   flutter_riverpod: ^1.0.4
   freezed_annotation: ^2.0.3
